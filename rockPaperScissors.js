@@ -94,6 +94,9 @@ function playRound(playerSelection, computerSelection) {
 	} else {
 		console.log(`The Computer played ${result}. The Player Wins! No Terminator Scenario Approaching!`);
 	}
+
+	const roundOutcome = playRound();
+	return roundOutcome;
 }
 
 console.log(playRound(playerSelection, computerSelection));
