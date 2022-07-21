@@ -50,4 +50,50 @@ function getComputerChoice(choices) {
 
 const choices = ['Rock', 'Paper', 'Scissors'];
 
-const result = getComputerChoice(choices);
+const computerSelection = getComputerChoice(choices).toLowerCase();
+
+//Add function for the players choice, which will be manually put in with
+
+//let playerSelection = prompt('Rock, Paper or Scissors?');
+
+//to make the user input case-insensitive, convert all the letters to lowercase for comparison with the computers choice
+
+//.toLowerCase can do that
+
+let playerSelection = prompt('Rock, Paper or Scissors?').toLowerCase();
+
+// Spell out scenarios where the two selections are compared and the regular rules applied
+
+// if the playerSelection equals the computerSelection, nobody wins
+
+// else if the playerSelection is Rock AND the computerSelection is PAper, computerSelection wins
+
+// else if the playerSelection is Scissors and the computerSelection is Rock, computerSelection wins
+
+// else if the playerSelection is Paper and the computerSelection is Scissors, computerSelection wins
+
+// else if the input is neither rock, paper nor scissors, show error MessageChannel
+
+// else the playerSelection wins
+
+// Rock > Scissors, Paper > Rock, Scissor > Paper
+
+function playRound(playerSelection, computerSelection) {
+	let result = computerSelection[0].toUpperCase() + computerSelection.substr(1);
+
+	if (playerSelection === computerSelection) {
+		console.log("It's a tie!");
+	} else if (playerSelection === 'rock' && computerSelection === 'paper') {
+		console.log('Paper beats Rock, the Computer wins!');
+	} else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+		console.log('Rock beats Scissors, the Computer Wins');
+	} else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+		console.log('Scissors beats Paper, the Computer wins!');
+	} else if (!['rock', 'paper', 'scissors'].includes(playerSelection)) {
+		console.log('No valid input!');
+	} else {
+		console.log(`The Computer played ${result}. The Player Wins! No Terminator Scenario Approaching!`);
+	}
+}
+
+console.log(playRound(playerSelection, computerSelection));
