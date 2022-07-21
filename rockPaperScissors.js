@@ -105,12 +105,16 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-	for (let i = 1; i < 6; i++) {
+	for (let i = 1; i < 10; i++) {
+		// TODO figure out why this makes the loop actually work
+
 		playerSelection = playerHand();
 		computerSelection = computerHand();
 		playRound(playerSelection, computerSelection);
 
 		console.log('Next round!');
+
+		// TODO edit the code to have exactly five rounds played and evaluate the winner after
 
 		if (playerScore === 3) {
 			alert('Player wins the Game!');
