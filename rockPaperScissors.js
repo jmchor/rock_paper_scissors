@@ -108,8 +108,6 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
 	for (let i = 1; i < 6; i++) {
-		// TODO figure out why this makes the loop actually work
-
 		// the loop starts and the first thing it calls is the playerHand function which
 		// prompts the player for input and returns that input to the variable playerChoice in
 		//all lower case. The functions value gets stored in the variable playerSelection.
