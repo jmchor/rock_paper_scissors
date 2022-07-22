@@ -77,8 +77,8 @@ function computerHand() {
 
 // that variable start at 0
 
-function playerHand() {
-	let playerChoice = prompt('Rock, Paper or Scissors?');
+function playerHand(i) {
+	let playerChoice = prompt(`This is round ${i}. Rock, Paper or Scissors?`);
 	return playerChoice.toLowerCase();
 }
 
@@ -86,51 +86,96 @@ function playRound(playerSelection, computerSelection) {
 	let result = computerSelection[0].toUpperCase() + computerSelection.substring(1);
 
 	if (playerSelection === computerSelection) {
-		alert("It's a tie!");
+		alert(`The Computer played ${result}. It's a tie!`);
 	} else if (playerSelection === 'rock' && computerSelection === 'paper') {
 		computerScore++;
-		alert('Paper beats Rock, the Computer wins!');
+		alert(
+			`The Computer played ${result}. The Computer Wins for some reason! (I mean, sure, paper envelops rock, but ever hear of a paper weight? seems like a lose-lose-kinda thing)`
+		);
 	} else if (playerSelection === 'scissors' && computerSelection === 'rock') {
 		computerScore++;
-		alert('Rock beats Scissors, the Computer Wins');
+		alert(`The Computer played ${result}. The Computer Wins! (What if it's a whetstone though...)`);
 	} else if (playerSelection === 'paper' && computerSelection === 'scissors') {
 		computerScore++;
-		alert('Scissors beats Paper, the Computer wins!');
+		alert(`The Computer played ${result}. The Computer Wins! (No argument there.)`);
 	} else if (!['rock', 'paper', 'scissors'].includes(playerSelection)) {
 		alert('No valid input!');
 	} else {
 		playerScore++;
-		alert(`The Computer played ${result}. The Player Wins! No Terminator Scenario Approaching!`);
+		alert(`The Computer played ${result}. The Player Wins! No Terminator Scenario Approaching (for now)!`);
 	}
 }
 
 function game() {
-	for (let i = 1; i < 10; i++) {
+	for (let i = 1; i < 6; i++) {
 		// TODO figure out why this makes the loop actually work
 
-		playerSelection = playerHand();
+		// the loop starts and the first thing it calls is the playerHand function which
+		// prompts the player for input and returns that input to the variable playerChoice in
+		//all lower case. The functions value gets stored in the variable playerSelection.
+
+		playerSelection = playerHand(i);
+
+		// next, the function computerHand is called, which generates a random number with the Math.random
+		// and Math.floor functions and multiplies it with the number of items in the array to get a number
+		// between 1 and 3. Then it declares the variable computerChoice, matching the number to an element in
+		// the array and returning a string. The functions value gets stored in the variable computerSelection.
+
 		computerSelection = computerHand();
+
+		// and finally, the game. The function playRound gets called and passed the variables playerSelection
+		// (which stores as value the players input) and computerSelection (stores the computers choice) as
+		//parameters.
+		//The function passes the parameters to a conditional statement, comparing the string values with
+		//varying conditions. If true, the condition increases the variable playerScore (or computerScore)
+		// by 1.
+
 		playRound(playerSelection, computerSelection);
 
-		console.log('Next round!');
+		// The for-loop will loop through the whole code block in its curly brackets until its condition is
+		// met. The for loop has the condition i < 6, with the intialization of i = 1, and the expression to
+		//  increment i by 1 after each loop.
 
-		// TODO edit the code to have exactly five rounds played and evaluate the winner after
+		// The following conditional statement is optional code, it will present an alert box to the user
+		// after one round to
+		//engage him to Pick Again as long as the index i is NOT 5 (so rounds 1 through 4). After round 5
+		// (when i has become 5) the user gets the message Thanks for playing. The loop then breaks if neither
+		// of the other two conditions can be met (since i already was 5 it cant be again, but it could be
+		// not-5. The loop-condition that i<6 determines that i can't be any other number though.)
 
-		if (playerScore === 3) {
-			alert('Player wins the Game!');
-			break;
-		} else if (computerScore === 3) {
-			alert(`Computer wins the Game with ${computerScore} to $ {playerScore}`);
-			break;
+		if (i != 5) {
+			alert('Pick again!');
+		} else if (i == 5) {
+			alert('Thanks for playing!');
 		} else {
-			alert('Player score: ' + playerScore + ' Computer Score:' + computerScore);
-			alert('Pick again');
 		}
+	}
+	//The else statement in the loop-conditional can be empty, but could also contain break to break the loop.
+	//
+	// The loop itself is one part of the function game(). The second part is another conditional statement
+	// which compares the last values of two variables from the playRound function after 5 loops. Those
+	// variables are playerScore and computerScore, either of which have been increased by 1 in each loop.
+
+	// The conditional statements compares the values with different outcomes if true and presents them in an
+	// alert box. The alert-content is written in backticks so they can take variable values an print them.
+
+	if (playerScore > computerScore) {
+		alert(`Player wins the Game with a score of ${playerScore} to ${computerScore}`);
+	} else if (computerScore > playerScore) {
+		alert(`Computer wins the Game with a score of ${computerScore} to ${playerScore}`);
+	} else {
 	}
 }
 
+// So far, everything written is a function which declare their own variables. The starting points for the
+// score values have to be set outside of the functions (globally) to be accessed by multiple functions.
+
 let playerScore = 0;
 let computerScore = 0;
-console.log(game());
+
+//  last, the function that contains the whole game, calling all functions in order, needs to be called to
+// start the game. So far, opening the webpage in the browser is the trigger for the script to start since its
+// a loose script tag in the html body.
+game();
 
 // credits to Quail58/John Gibson for helping me getting the f*** out of the loop-loop and giving me something to learn.
