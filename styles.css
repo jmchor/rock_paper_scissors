@@ -12,3 +12,13 @@ body {
 	height: 10rem;
 	border: 2px solid black;
 }
+
+.reload {
+}
+
+.buttonBox {
+}
+
+.invisible {
+	display: none;
+}
