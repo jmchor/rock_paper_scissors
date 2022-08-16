@@ -41,5 +41,9 @@ buttons.forEach((button) => {
 		} else {
 			announceBox.appendChild(para);
 		}
+
+		if (playerScore === 5 || computerScore === 5) {
+			para.textContent = `End of Game! Player: ${playerScore}, Computer ${computerScore}`;
+		}
 	});
 });
