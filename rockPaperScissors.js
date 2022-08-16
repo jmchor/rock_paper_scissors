@@ -86,28 +86,28 @@ function playRound(playerSelection, computerSelection) {
 	let result = computerSelection[0].toUpperCase() + computerSelection.substring(1);
 
 	if (playerSelection === computerSelection) {
-		alert(`The Computer played ${result}. It's a tie!`);
+		console.log(`The Computer played ${result}. It's a tie!`);
 	} else if (playerSelection === 'rock' && computerSelection === 'paper') {
 		computerScore++;
-		alert(
+		console.log(
 			`The Computer played ${result}. The Computer Wins for some reason! (I mean, sure, paper envelops rock, but ever hear of a paper weight? seems like a lose-lose-kinda thing)`
 		);
 	} else if (playerSelection === 'scissors' && computerSelection === 'rock') {
 		computerScore++;
-		alert(`The Computer played ${result}. The Computer Wins! (What if it's a whetstone though...)`);
+		console.log(`The Computer played ${result}. The Computer Wins! (What if it's a whetstone though...)`);
 	} else if (playerSelection === 'paper' && computerSelection === 'scissors') {
 		computerScore++;
-		alert(`The Computer played ${result}. The Computer Wins! (No argument there.)`);
+		console.log(`The Computer played ${result}. The Computer Wins! (No argument there.)`);
 	} else if (!['rock', 'paper', 'scissors'].includes(playerSelection)) {
-		alert('No valid input!');
+		console.log('No valid input!');
 	} else {
 		playerScore++;
-		alert(`The Computer played ${result}. The Player Wins! No Terminator Scenario Approaching (for now)!`);
+		console.log(`The Computer played ${result}. The Player Wins! No Terminator Scenario Approaching (for now)!`);
 	}
 }
 
 function game() {
-	for (let i = 1; i < 6; i++) {
+	for (let i = 1; i < 1000; i++) {
 		// the loop starts and the first thing it calls is the playerHand function which
 		// prompts the player for input and returns that input to the variable playerChoice in
 		//all lower case. The functions value gets stored in the variable playerSelection.
@@ -131,7 +131,7 @@ function game() {
 		playRound(playerSelection, computerSelection);
 
 		// The for-loop will loop through the whole code block in its curly brackets until its condition is
-		// met. The for loop has the condition i < 6, with the intialization of i = 1, and the expression to
+		// met. The for loop has the condition i < 6, with the initialization of i = 1, and the expression to
 		//  increment i by 1 after each loop.
 
 		// The following conditional statement is optional code, it will present an alert box to the user
@@ -140,13 +140,6 @@ function game() {
 		// (when i has become 5) the user gets the message Thanks for playing. The loop then breaks if neither
 		// of the other two conditions can be met (since i already was 5 it cant be again, but it could be
 		// not-5. The loop-condition that i<6 determines that i can't be any other number though.)
-
-		if (i != 5) {
-			alert('Pick again!');
-		} else if (i == 5) {
-			alert('Thanks for playing!');
-		} else {
-		}
 	}
 	//The else statement in the loop-conditional can be empty, but could also contain break to break the loop.
 	//
@@ -158,9 +151,9 @@ function game() {
 	// alert box. The alert-content is written in backticks so they can take variable values an print them.
 
 	if (playerScore > computerScore) {
-		alert(`Player wins the Game with a score of ${playerScore} to ${computerScore}`);
+		console.log(`Player wins the Game with a score of ${playerScore} to ${computerScore}`);
 	} else if (computerScore > playerScore) {
-		alert(`Computer wins the Game with a score of ${computerScore} to ${playerScore}`);
+		console.log(`Computer wins the Game with a score of ${computerScore} to ${playerScore}`);
 	} else {
 	}
 }
