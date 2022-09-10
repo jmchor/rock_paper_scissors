@@ -13,7 +13,7 @@ body {
 header {
 	display: flex;
 	flex-direction: column;
-	gap: 5rem;
+	gap: 2rem;
 }
 
 header span {
@@ -26,9 +26,11 @@ header span {
 }
 
 .outcome {
-	width: 30rem;
-	height: 10rem;
-	border: 2px solid black;
+	width: 45rem;
+	height: 20rem;
+	padding: 20px;
+	font-size: 26px;
+	font-weight: 700;
 }
 
 #scissors,
@@ -41,6 +43,12 @@ header span {
 	border: none;
 	font-size: 32px;
 	background: none;
+}
+
+#scissors:active,
+#rock:active,
+#paper:active {
+	transform: scale(1.5);
 }
 
 button img {

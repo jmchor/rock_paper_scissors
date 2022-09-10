@@ -24,18 +24,21 @@ function allTheButtons(button) {
 		let para = document.createElement('p');
 
 		if (playerSelection === computerSelection) {
-			para.textContent = `The Computer played ${computerSelection}. It's a tie!`;
+			para.textContent = `You chose ${playerSelection.toUpperCase()}. The Computer played ${computerSelection.toUpperCase()}. It's a tie!`;
 		} else if (playerSelection === 'scissors' && computerSelection === 'rock') {
 			computerScore++;
-			para.textContent = `The Computer played ${computerSelection}. Computer Wins! ${playerScore} to ${computerScore}`;
+			para.textContent = `You chose ${playerSelection.toUpperCase()}. The Computer played ${computerSelection.toUpperCase()}. Computer Wins! ${playerScore} to ${computerScore}`;
 		} else if (playerSelection === 'paper' && computerSelection === 'scissors') {
 			computerScore++;
-			para.textContent = `The Computer played ${computerSelection}. The Computer Wins! (No argument there.) ${playerScore} to ${computerScore}`;
+			para.textContent = `You chose ${playerSelection.toUpperCase()}. The Computer played ${computerSelection.toUpperCase()}. The Computer Wins! (No argument there.) ${playerScore} to ${computerScore.toUpperCase()}`;
+		} else if (playerSelection === 'rock' && computerSelection === 'paper') {
+			computerScore++;
+			para.textContent = `You chose ${playerSelection.toUpperCase()}. The Computer played ${computerSelection.toUpperCase()}. The Computer Wins! (No argument there.) ${playerScore} to ${computerScore}`;
 		} else if (!['rock', 'paper', 'scissors'].includes(playerSelection)) {
 			window.location.reload(true);
 		} else {
 			playerScore++;
-			para.textContent = `The Computer played ${computerSelection}. The Player Wins! No Terminator Scenario Approaching (for now)! ${playerScore} to ${computerScore}`;
+			para.textContent = `You chose ${playerSelection.toUpperCase()}. The Computer played ${computerSelection.toUpperCase()}. The Player Wins! No Terminator Scenario Approaching (for now)! ${playerScore} to ${computerScore}`;
 		}
 
 		if (announceBox.hasChildNodes()) {
