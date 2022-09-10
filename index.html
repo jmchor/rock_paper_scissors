@@ -1,45 +1,37 @@
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>RPS Project</title>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>RPS Project</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
 
-        <link rel="stylesheet" href="styles.css">
-    </head>
+	<body>
+		<header>
+			<h1>Let's play some</h1>
+			<span> ROCK PAPER SCISSORS!</span>
+		</header>
 
-    <body>
+		<div class="buttonBox">
+			<button id="scissors">
+				<img src="./img/scissors-svgrepo-com.svg" alt="" />
+			</button>
+			<button id="paper">
+				<img src="./img/file-paper-svgrepo-com.svg" alt="" />
+			</button>
+			<button id="rock">
+				<img src="./img/rock-svgrepo-com.svg" alt="" />
+			</button>
+		</div>
 
+		<div class="outcome"></div>
 
+		<div class="reload invisible">
+			<button id="again">Play Again</button>
+		</div>
 
-
-        <div class="main">
-
-            <h1>Welcome to the The Odin Project Rock-Paper-Scissors-Project!</h1>
-
-
-        </div>
-
-        <div class="buttonBox">
-
-            <button id="scissors">Scissors</button>
-            <button id="paper">Paper</button>
-            <button id="rock">Rock</button>
-
-        </div>
-
-        <div class="outcome">
-
-        </div>
-
-        <div class="reload invisible">
-            <button id="again">Play Again</button>
-        </div>
-
-        <script src="/home/jc/Codeberg/rps-project/rps-ui.js">
-        </script>
-
-    </body>
-
+		<script src="/home/jc/Codeberg/rps-project/rps-ui.js"></script>
+	</body>
 </html>

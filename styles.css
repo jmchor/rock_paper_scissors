@@ -5,12 +5,46 @@ body {
 	text-align: center;
 	flex-direction: column;
 	gap: 10rem;
+	font-family: 'Work Sans';
+	background-color: rgb(255, 255, 255);
+	height: 100vh;
+}
+
+header {
+	display: flex;
+	flex-direction: column;
+	gap: 5rem;
+}
+
+header span {
+	width: 40rem;
+	font-size: 54px;
+	font-style: italic;
+	font-family: 'Iosevka Nerd Font';
+	background: url(./img/alt-scratch.png) yellow repeat scroll 0% 0% / 600px;
+	transform: skew(9deg, 0deg);
 }
 
 .outcome {
 	width: 30rem;
 	height: 10rem;
 	border: 2px solid black;
+}
+
+#scissors,
+#rock,
+#paper {
+	width: 15rem;
+	height: 10rem;
+	padding: 20 30px;
+	outline: none;
+	border: none;
+	font-size: 32px;
+	background: none;
+}
+
+button img {
+	width: 6rem;
 }
 
 .reload {
