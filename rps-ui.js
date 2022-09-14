@@ -1,5 +1,4 @@
 let announceBox = document.querySelector('.outcome');
-let scoreBox = document;
 
 const replay = document.querySelector('.reload');
 
@@ -16,6 +15,7 @@ const buttons = document.querySelectorAll('button');
 
 let playerScore = 0;
 let computerScore = 0;
+let tieScore = 0;
 
 function allTheButtons(button) {
 	button.addEventListener('click', () => {
@@ -25,9 +25,12 @@ function allTheButtons(button) {
 		let para = document.createElement('p');
 		let playerPoints = document.querySelector('#playerscore');
 		let machineScore = document.querySelector('#machinescore');
+		let ties = document.querySelector('#tie');
 
 		if (playerSelection === computerSelection) {
 			para.textContent = `You chose ${playerSelection.toUpperCase()}. The Computer played ${computerSelection.toUpperCase()}. It's a tie!`;
+			tieScore++;
+			ties.textContent = `${tieScore}`;
 		} else if (playerSelection === 'scissors' && computerSelection === 'rock') {
 			computerScore++;
 			para.textContent = `You chose ${playerSelection.toUpperCase()}. The Computer played ${computerSelection.toUpperCase()}. Computer Wins!`;
@@ -59,12 +62,12 @@ function allTheButtons(button) {
 			announceBox.appendChild(para);
 		}
 
-		if (scoreBox.hasChildNodes()) {
-			announceBox.removeChild(announceBox.childNodes[0]);
-			announceBox.appendChild(para);
-		} else {
-			announceBox.appendChild(para);
-		}
+		// if (scoreBox.hasChildNodes()) {
+		// 	scoreBox.removeChild(scoreBox.childNodes[0]);
+		// 	scoreBox.appendChild(para);
+		// } else {
+		// 	scoreBox.appendChild(para);
+		// }
 
 		if (playerScore === 5 || computerScore === 5) {
 			buttonBox.classList.add('invisible');
